@@ -1,0 +1,32 @@
+#sidebar
+{
+    opacity: 0.0; 
+    background: rgb(178, 240, 255);
+    position:fixed;
+    width:5%;
+    height:100%;
+    top:0;
+    left:0;
+    transition:all 0.5s;
+}
+#sidebar:hover
+{
+    opacity:0.7;
+    width:15%;
+    transition:all 0.5s;
+}
+.button
+{
+margin:0.2em;    
+height: 2em;
+background: rgb(129, 230, 255);
+color:rgb(0, 153, 255) ;
+padding: 0.5em;
+text-align: center;
+}
+.button:hover
+{
+background: rgb(208, 246, 255);
+color:rgb(0, 89, 255) ;
+cursor:hand;
+}

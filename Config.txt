@@ -1,0 +1,9 @@
+﻿[MangaDir]漫画文件夹，将从以下目录搜寻漫画压缩包：
+F:\本\鬼月
+[/MangaDir]
+[TempDir]缓存文件夹，将在此暂存解压的文件，若不存在将会被创建，正常关闭时会被清空
+Temp
+[/TempDir]
+[Passwords]解压用的默认密码，将按顺序尝试：
+Aeroblast
+[/Passwords]
