@@ -258,7 +258,7 @@ class MangaHTTPServer
                         int page = 0;
                         if (cmd.Length >= 2)
                             if (Int32.TryParse(cmd[1], out page))
-                                if (page < _sessions[sessionId].pagePaths.Count)
+                                if (page>=0&&page < _sessions[sessionId].pagePaths.Count)
                                 {
                                     ServeFile(context, _sessions[sessionId].pagePaths[page]);
                                 }
@@ -297,7 +297,7 @@ class MangaHTTPServer
             filename = Path.Combine(_rootDirectory, filename);
             ServeFile(context, filename);
         }
-        context.Response.AddHeader("Server", "Aero Manga Manager v0.1");
+        context.Response.AddHeader("Server", "AeroMangaManager/0.1");
         context.Response.OutputStream.Close();
     }
 

@@ -8,6 +8,7 @@
     top:0;
     left:0;
     transition:all 0.5s;
+    z-index: 10;
 }
 #sidebar:hover
 {
@@ -23,10 +24,34 @@ background: rgb(129, 230, 255);
 color:rgb(0, 153, 255) ;
 padding: 0.5em;
 text-align: center;
+overflow: hidden;
 }
 .button:hover
 {
 background: rgb(208, 246, 255);
 color:rgb(0, 89, 255) ;
 cursor:hand;
+}
+.mangaPage
+{
+    width: 100%;
+}
+.mangaTitle
+{
+    margin:0em;   
+    font-size: 0.8em;
+    overflow-x:auto;
+    overflow-y: hidden;
+    height: 1.2em;
+    padding: 0.5em;
+    text-align: left;
+    white-space:nowrap;
+}
+.mangaTitle::-webkit-scrollbar
+{
+    display: none;
+}
+body
+{
+    overflow-x:hidden;
 }

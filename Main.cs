@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Diagnostics;
 using SharpCompress.Common;
 
 //#pragma warning disable CS3021 //CLS，SharpCompress中处理而项目没有，故禁用//已经在csproj文件中禁用
@@ -21,10 +22,13 @@ namespace AeroMangaManager
             ArchiveManager.Init();
 
             MangaHTTPServer server=new MangaHTTPServer(Directory.GetCurrentDirectory()+"\\website",19191);//记得防火墙设置
-            addr="http://"+GetCurrentIP().ToString()+":"+server.Port;
+            addr="http://"+GetCurrentIP().ToString()+":"+server.Port+"/";
 
             Logger.Log(addr);
-           
+            ProcessStartInfo procInfo=new ProcessStartInfo();
+            procInfo.UseShellExecute=true;
+            procInfo.FileName="\""+addr+"\"";
+            Process.Start(procInfo);
             while(true)
             {
                 string cmd=Console.ReadLine();
@@ -33,12 +37,13 @@ namespace AeroMangaManager
                     case "x":
                     {
                         //server.Stop();
-                        HttpWebRequest request=(HttpWebRequest) HttpWebRequest.Create(addr+"/api/ShutDown" );
+                        HttpWebRequest request=(HttpWebRequest) HttpWebRequest.Create(addr+"api/ShutDown" );
                         request.Method="GET";
                         request.GetResponse();
                         ArchiveManager.ClearDir(ArchiveManager.tempDirPath);
                         //To-do:删缓存，停止解压进程
                     }break;
+                    
                 }
                 if(server.stopped)
                 {
